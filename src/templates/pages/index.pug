@@ -1,0 +1,57 @@
+extends ../template
+
+block content
+  .wrapper
+    .bg
+    .logo
+      img(src='./images/logo.png', alt='logo').logo__img
+    .app#app
+      .app__wrap
+        header.app__header
+          h1.app__title Выберите друзей
+          .app__close-btn
+            i.fa.fa-times.close
+        .app__search-bar
+          .search-bar__row
+            .search-bar__col
+              label(for='searchFriend').search-bar__icon
+                i.fa.fa-search
+              input(class='search-bar__input' id='friendInput' name='searchFriend' placeholder='Начните вводить имя друга')
+            .search-bar__col
+              label(for='searchList').search-bar__icon
+                i.fa.fa-search
+              input(class='search-bar__input' id='listInput' name='searchList' placeholder='Начните вводить имя друга')
+        main.app__main-content
+          .app__main-content-left
+            h4.friends__title Ваши друзья
+            ul.friends__list#allFriends
+
+          .app__main-content-right
+            h4.friends__title Друзья в списке
+            ul.friends__list#saveFriends
+
+        footer.app__footer
+          label.app__footer-btn(for="save-btn")
+            button.visuallyhidden(type='submit' id='save-btn')
+            .app__save-btn#saveButton Сохранить
+
+    .status-overlay
+      .status-overlay__wrap
+        .status-overlay__close
+          i.fa.fa-times.close#overlay-close
+        .status
+    | <script id="user-template" type="text/x-handlebars-template">
+    |   {{#each items}}
+    |   <li class='friends__item' id='id_{{id}}' draggable='true'>
+    |     <div class='friends__item-desc'>
+    |       <div class='friends__avatar'>
+    |         <img src='{{photo_50}}' class='friends__avatar-img'>
+    |       </div>
+    |       <div class='friends__name'>{{first_name}} {{last_name}}</div>
+    |     </div>
+    |     <div class='friends__controls'>
+    |       <i class='fa fa-times'></i>
+    |     </div>
+    |   </li>
+    |   {{/each}}
+    | </script>
