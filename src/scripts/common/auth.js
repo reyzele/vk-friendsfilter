@@ -27,9 +27,7 @@ export function Auth() {
     })
   })
 
-  VK.init({
-    apiId: 6494066
-  });
+  VK.init({ apiId: 6487894 });
   function auth() {
     return new Promise((resolve, reject) => {
       VK.Auth.login(data => {
